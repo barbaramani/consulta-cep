@@ -1,12 +1,13 @@
 import requests
 
-print('CONSULTA CEP')
+print('{:*^30}'.format('\033[33mCONSULTA CEP\033[m'))
 
 cep = input('Digite o CEP:')
 
-if len(cep) != 8:
+while len(cep) != 8:
     print('Digitos inválidos.')
-    exit()
+    cep = input('Digite o CEP novamente:')
+
 
 requerer = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
 
